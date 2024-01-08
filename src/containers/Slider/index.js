@@ -24,9 +24,9 @@ const Slider = () => {
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
-        <>
+       // changement fragment en div qui contient la key
+        <div key={event.title}>
           <div
-            key={event.title}
             className={`SlideCard SlideCard--${
               index === idx ? "display" : "hide"
             }`}
@@ -49,11 +49,13 @@ const Slider = () => {
                   name="radio-button"
                   // changement idx par index, car index s'actualise contrairement à idx
                   checked={index === radioIdx}
+                  // ajout de readOnly
+                  readOnly
                 />
               ))}
             </div>
           </div>
-        </>
+        </div>
       ))}
     </div>
   );
